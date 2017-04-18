@@ -64,13 +64,12 @@ std::unordered_map<int, std::forward_list<int>> GetBTLL(Node *n, int depth){
     return res;
 }
 
-void GetBTLL(Node *n, int depth, std::unordered_map<int, std::forward_list<int>>* res){
+void GetBTLL(Node *n, int depth, std::unordered_map<int, std::forward_list<int>>& res){
     if(n == nullptr){
         return;
     }
     
-    auto &p = *res;
-    p[depth].push_front(n->val);
+    res[depth].push_front(n->val);
     
     GetBTLL(n->l, depth + 1, res);
     GetBTLL(n->r, depth + 1, res);
@@ -90,7 +89,7 @@ void Run(){
     
     //PrintBST(head);
     
-    GetBTLL( head, 0, &res);
+    GetBTLL( head, 0, res);
     
     int i = (int)res.size();
     while(i != -1){
