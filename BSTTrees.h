@@ -9,6 +9,10 @@
 #ifndef BSTTrees_h
 #define BSTTrees_h
 
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <forward_list>
 
 struct Node
 {
